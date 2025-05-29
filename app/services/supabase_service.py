@@ -16,7 +16,7 @@ class SupabaseService:
     async def get_client(self, client_id: str) -> Optional[Dict[str, Any]]:
         """Obtiene información de un cliente."""
         try:
-            response = self.client.table("clients").select("*").eq("id", client_id).single().execute()
+            response = self.client.table("business_details").select("*").eq("id", client_id).single().execute()
             return response.data
         except Exception as e:
             logger.error(f"Error al obtener cliente {client_id}: {str(e)}")
